@@ -21,7 +21,7 @@ public void Method()
   ... instruction ...
 }
 ```
-![full fence](img/fullfence.jpg)
+![full fence](img/full.jpg)
 ### Half fence : Read fence
 Volatile read = acquire fence (half fence)
 
@@ -44,7 +44,7 @@ public void Method()
   ... instruction ...
 }
 ```
-![read fence](img/readfence.jpg)
+![read fence](img/read.jpg)
 ### Half fence : write fence
 Volatile write = release fence (half fence)
 ```Csharp
@@ -61,4 +61,4 @@ public void Method()
   ... instruction ...
 }
 ```
-![write fence](img/writefence.jpg)
+![write fence](img/write.jpg)
