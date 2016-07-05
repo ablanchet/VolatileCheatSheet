@@ -72,7 +72,7 @@ public class X
   public void Run()
   {
     _continue = 0;
-    while(_continue == 0)
+    while (_continue == 0)
     {
       ...
     }
@@ -93,10 +93,10 @@ public class X
   public void Run()
   {
     _continue = 0;
-    if(_continue != 0)
+    if (_continue != 0)
       return;
     
-    while(true)
+    while (true)
     {
       ...
     }
