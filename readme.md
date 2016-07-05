@@ -9,7 +9,7 @@
 
 ## Fencing
 ### Full fence
-```Csharp
+```cs
 public void Method()
 {
   ... instruction ...
@@ -22,12 +22,11 @@ public void Method()
 }
 ```
 ![full fence](img/full.jpg)
-### Half fence : Read fence
-Volatile read = acquire fence (half fence)
+### Half fence : volatile read : acquire fence
 
 > :bulb: **ARF = Acquire Read Follow**
 
-```Csharp
+```cs
 private volatile int _value;
 
 public void Method()
@@ -45,9 +44,9 @@ public void Method()
 }
 ```
 ![read fence](img/read.jpg)
-### Half fence : write fence
-Volatile write = release fence (half fence)
-```Csharp
+### Half fence : volative write : release fence
+
+```cs
 private volatile int _value;
 
 public void Method()
@@ -64,7 +63,7 @@ public void Method()
 ![write fence](img/write.jpg)
 
 ## Example
-```CSharp
+```cs
 public class X 
 {
   private volatile int _continue;
@@ -85,7 +84,7 @@ public class X
 }
 ```
 In this case if `_continue` is not defined as `volatile` and if `Run()` and `Stop()` are called from different threads and if the compiler wants to reorder some lines or if CPU wants to reorder the instructions we can have something like this :
-```CSharp
+```cs
 public class X 
 {
   private int _continue;
