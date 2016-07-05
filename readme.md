@@ -62,3 +62,49 @@ public void Method()
 }
 ```
 ![write fence](img/write.jpg)
+
+## Example
+```CSharp
+public class X 
+{
+  private volatile int _continue;
+  
+  public void Run()
+  {
+    _continue = 0;
+    while(_continue == 0)
+    {
+      ...
+    }
+  }
+  
+  public void Stop()
+  {
+    _continue = 1;
+  }
+}
+```
+In this case if `_continue` is not defined as `volatile` and if `Run()` and `Stop()` are called from different threads and if the compiler wants to reorder some lines or if CPU wants to reorder the instructions we can have something like this :
+```CSharp
+public class X 
+{
+  private int _continue;
+  
+  public void Run()
+  {
+    _continue = 0;
+    if(_continue != 0)
+      return;
+    
+    while(true)
+    {
+      ...
+    }
+  }
+  
+  public void Stop()
+  {
+    _continue = 1;
+  }
+}
+```
